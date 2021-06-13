@@ -1,4 +1,4 @@
-import React, { FC, useCallback, useEffect, useState } from 'react';
+import { FC, useCallback, useEffect, useState } from 'react';
 import styled from 'styled-components';
 
 interface IProps {
@@ -9,12 +9,6 @@ export const Browser: FC<IProps> = ({ browser }: IProps) => {
   const [expand, setExpand] = useState<boolean>(false);
   const [focus, setFocus] = useState<boolean>(false);
   const [keyword, setKeyword] = useState<string>('');
-  const rangeTop = useCallback(() => {
-    Math.floor(Math.random() * 20);
-  }, []);
-  const rangeLeft = useCallback(() => {
-    Math.floor(Math.random() * 50);
-  }, []);
 
   const toggleExpand = () => {
     setExpand(expand ? false : true);
@@ -35,8 +29,8 @@ export const Browser: FC<IProps> = ({ browser }: IProps) => {
   return (
     <Wrap
       style={{
-        top: `${expand ? '0' : rangeTop}%`,
-        left: `${expand ? '0' : rangeLeft}%`,
+        top: '20%',
+        left: '30%',
         width: `${expand ? '100%' : '700px'}`,
         height: `${expand ? '100vh' : '500px'}`,
         position: `${expand ? 'relative' : 'absolute'}`,

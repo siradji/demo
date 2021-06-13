@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useState, useCallback } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { WebcamComponent } from '@modules/blocks/Webcam/Webcam';
 
@@ -9,12 +9,8 @@ interface IProps {
 export const Camera: FC<IProps> = ({ camera }: IProps) => {
   const [expand, setExpand] = useState<boolean>(false);
   const [focus, setFocus] = useState<boolean>(false);
-  const rangeTop = useCallback(() => {
-    Math.floor(Math.random() * 20);
-  }, []);
-  const rangeLeft = useCallback(() => {
-    Math.floor(Math.random() * 50);
-  }, []);
+  const rangeTop: number = Math.floor(Math.random() * 20);
+  const rangeLeft: number = Math.floor(Math.random() * 50);
 
   const toggleExpand = () => {
     setExpand(expand ? false : true);
