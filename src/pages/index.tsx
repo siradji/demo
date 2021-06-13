@@ -2,24 +2,19 @@ import { Sidebar } from '@modules/blocks/sidebar';
 import { TopBar } from '@modules/blocks/topbar';
 import { Auth } from '../modules/sections/Auth';
 import Head from 'next/head';
-import Image from 'next/image';
-import { useCallback, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import firebase from 'firebase';
-import { WebcamComponent } from '@modules/blocks/Webcam/Webcam';
 import { Camera } from '@modules/sections/Camera';
 import { Gallery } from '@modules/sections/Gallery';
 import { Rss } from '@modules/sections/Rss';
-import { BooleanArraySupportOption } from 'prettier';
 import { Browser } from '@modules/sections/Browser';
 
 export default function Home({ data, rssFeed }) {
   const [logged, setLogged] = useState<boolean>(false);
-  const [selected, setSelected] = useState<[]>([]);
   const [camera, setCamera] = useState<boolean>(false);
   const [gallery, setGallery] = useState<boolean>(false);
   const [browser, setBrowser] = useState<boolean>(false);
   const [rss, setRss] = useState<boolean>(false);
-  const [url, setUrl] = useState<string>('');
   useEffect(() => {
     firebase.auth().onAuthStateChanged(user => {
       if (user) {
@@ -27,10 +22,6 @@ export default function Home({ data, rssFeed }) {
       }
     });
   }, []);
-
-  console.log(url);
-  console.log('An Array:', selected);
-  console.log(rssFeed);
   return (
     <>
       <Head>
