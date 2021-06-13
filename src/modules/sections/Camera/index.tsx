@@ -13,7 +13,7 @@ export const Camera: FC<IProps> = ({ camera }: IProps) => {
   const rangeLeft: number = Math.floor(Math.random() * 50);
 
   const toggleExpand = () => {
-    setExpand(expand ? false : true);
+    setExpand(!expand);
   };
   let def = 2;
 
@@ -39,8 +39,8 @@ export const Camera: FC<IProps> = ({ camera }: IProps) => {
             onClick={() => camera(false)}
             style={{ marginRight: '1em' }}
             className="fas fa-times"
-          ></i>
-          <i onClick={toggleExpand} className="fas fa-square"></i>
+          />
+          <i onClick={toggleExpand} className="fas fa-square" />
         </div>
       </Top>
       <Middle>
@@ -48,12 +48,12 @@ export const Camera: FC<IProps> = ({ camera }: IProps) => {
           <WebcamComponent />
           <Flex>
             <button className="flex justify-center items-center">
-              <i className="fas fa-camera"></i>
+              <i className="fas fa-camera" />
             </button>
           </Flex>
         </Wrapper>
       </Middle>
-      <Bottom></Bottom>
+      <Bottom />
     </Wrap>
   );
 };

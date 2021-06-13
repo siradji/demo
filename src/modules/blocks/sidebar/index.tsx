@@ -10,26 +10,26 @@ interface IProps {
   gallery: any;
 }
 
-export const Sidebar: FC<IProps> = ({ camera, gallery, browser, rss }: IProps) => {
-  return (
-    <Wrap>
-      <Inner>
-        <Icon onClick={() => camera(true)}>
-          <Image src="https://image.flaticon.com/icons/png/512/3249/3249934.png" />
-        </Icon>
-        <Icon onClick={() => rss(true)}>
-          <Image src="https://image.flaticon.com/icons/png/512/1176/1176875.png" />
-        </Icon>
-        <Icon onClick={() => browser(true)}>
-          <Image src="https://image.flaticon.com/icons/png/512/3820/3820255.png" />
-        </Icon>
-        <Icon onClick={() => gallery(true)}>
-          <Image src="https://image.flaticon.com/icons/png/512/3342/3342176.png" />
-        </Icon>
-      </Inner>
-    </Wrap>
-  );
-};
+export const Sidebar: FC<IProps> = ({
+  camera, gallery, browser, rss,
+}: IProps) => (
+  <Wrap>
+    <Inner>
+      <Icon onClick={() => camera(true)}>
+        <Image src="https://image.flaticon.com/icons/png/512/3249/3249934.png" />
+      </Icon>
+      <Icon onClick={() => rss(true)}>
+        <Image src="https://image.flaticon.com/icons/png/512/1176/1176875.png" />
+      </Icon>
+      <Icon onClick={() => browser(true)}>
+        <Image src="https://image.flaticon.com/icons/png/512/3820/3820255.png" />
+      </Icon>
+      <Icon onClick={() => gallery(true)}>
+        <Image src="https://image.flaticon.com/icons/png/512/3342/3342176.png" />
+      </Icon>
+    </Inner>
+  </Wrap>
+);
 
 const Wrap = styled.div`
   display: flex;

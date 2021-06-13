@@ -11,16 +11,16 @@ export const Auth: FC = () => {
   const [password, setPassword] = useState('');
   const [showPass, setShowPass] = useState(false);
   const togglePasswordVisiblity = () => {
-    setShowPass(showPass ? false : true);
+    setShowPass(!showPass);
   };
   const Signin = () => {
     firebase
       .auth()
       .signInWithEmailAndPassword(email, password)
-      .then(result => {
+      .then((result) => {
         console.log(result);
       })
-      .catch(err => {
+      .catch((err) => {
         console.log(err);
       });
   };
@@ -30,17 +30,17 @@ export const Auth: FC = () => {
       <Inner>
         <Card variant="lg">
           <Input
-            onChange={e => setEmail(e.target.value)}
+            onChange={(e) => setEmail(e.target.value)}
             placeholder="Email"
             type="text"
           />
           <Contain>
             <Input
-              onChange={e => setPassword(e.target.value)}
+              onChange={(e) => setPassword(e.target.value)}
               placeholder="Password"
               type={showPass ? 'text' : 'password'}
             />
-            <i onClick={togglePasswordVisiblity} className="far fa-eye-slash"></i>
+            <i onClick={togglePasswordVisiblity} className="far fa-eye-slash" />
           </Contain>
           <Button fill onClick={Signin}>
             submit

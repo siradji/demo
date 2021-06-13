@@ -1,4 +1,6 @@
-import { FC, useCallback, useEffect, useState } from 'react';
+import {
+  FC, useCallback, useEffect, useState,
+} from 'react';
 import styled from 'styled-components';
 
 interface IProps {
@@ -11,9 +13,9 @@ export const Browser: FC<IProps> = ({ browser }: IProps) => {
   const [keyword, setKeyword] = useState<string>('');
 
   const toggleExpand = () => {
-    setExpand(expand ? false : true);
+    setExpand(!expand);
   };
-  const onKeyUp = async event => {
+  const onKeyUp = async (event) => {
     if (event.charCode === 13) {
       window.open(keyword);
     }
@@ -40,20 +42,20 @@ export const Browser: FC<IProps> = ({ browser }: IProps) => {
     >
       <Row>
         <div className="flex">
-          <span style={{ background: '#ED594A' }}></span>
-          <span style={{ background: '#FDD800' }}></span>
-          <span style={{ background: '#5AC05A' }}></span>
+          <span style={{ background: '#ED594A' }} />
+          <span style={{ background: '#FDD800' }} />
+          <span style={{ background: '#5AC05A' }} />
         </div>
         <div>
           <input
             type="text"
-            onChange={e => handleSearchValue(e)}
+            onChange={(e) => handleSearchValue(e)}
             onKeyPress={onKeyUp}
           />
         </div>
         <div className="flex">
-          <i onClick={() => browser(false)} className="fas fa-times mr-4"></i>
-          <i onClick={() => toggleExpand()} className="fas fa-square"></i>
+          <i onClick={() => browser(false)} className="fas fa-times mr-4" />
+          <i onClick={() => toggleExpand()} className="fas fa-square" />
         </div>
       </Row>
     </Wrap>

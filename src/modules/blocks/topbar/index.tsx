@@ -35,11 +35,13 @@ export const TopBar: FC = () => {
           src="https://www.iconsdb.com/icons/preview/black/full-battery-xxl.png"
           alt=""
         />
-        <i className="fas fa-search"></i>
+        <i className="fas fa-search" />
       </Middle>
       <Left>
         <p>
-          {date} {time}
+          {date}
+          {' '}
+          {time}
         </p>
       </Left>
     </Wrap>

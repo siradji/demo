@@ -10,13 +10,13 @@ interface IProps {
   selected: any[];
 }
 
-export const Icon: FC<IProps> = ({ src, value, select, selected }: IProps) => {
-  return (
-    <Wrap onClick={e => select([...selected, e.currentTarget.value])} value={value}>
-      <Image src={src} />
-    </Wrap>
-  );
-};
+export const Icon: FC<IProps> = ({
+  src, value, select, selected,
+}: IProps) => (
+  <Wrap onClick={(e) => select([...selected, e.currentTarget.value])} value={value}>
+    <Image src={src} />
+  </Wrap>
+);
 
 const Wrap = styled.button`
   background-color: ${({ theme }) => theme.accent};

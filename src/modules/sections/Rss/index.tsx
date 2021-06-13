@@ -12,7 +12,7 @@ export const Rss: FC<IProps> = ({ rss, cancel }: IProps) => {
   const rangeLeft: number = Math.floor(Math.random() * 50);
 
   const toggleExpand = () => {
-    setExpand(expand ? false : true);
+    setExpand(!expand);
   };
 
   const min = rss.slice(0, 4);
@@ -36,8 +36,8 @@ export const Rss: FC<IProps> = ({ rss, cancel }: IProps) => {
             onClick={() => cancel(false)}
             style={{ marginRight: '1em' }}
             className="fas fa-times"
-          ></i>
-          <i onClick={toggleExpand} className="fas fa-square"></i>
+          />
+          <i onClick={toggleExpand} className="fas fa-square" />
         </div>
       </Top>
       <Middle>
@@ -45,7 +45,9 @@ export const Rss: FC<IProps> = ({ rss, cancel }: IProps) => {
           <div className={`${expand ? 'grid grid-cols-3' : 'grid grid-cols-1'}`}>
             {expand ? (
               <>
-                {max.map(({ title, link, description, enclosure, author }: any) => (
+                {max.map(({
+                  title, link, description, enclosure, author,
+                }: any) => (
                   <div className="w-full flex overflow-hidden my-2">
                     <div className="w-full" style={{ flexBasis: '60%' }}>
                       <img src={enclosure.link} className="w-full" alt="" />
@@ -55,9 +57,14 @@ export const Rss: FC<IProps> = ({ rss, cancel }: IProps) => {
                       <article className="prose lg:prose-sm mt-6">
                         {description}
                       </article>
-                      <p className="prose lg:prose-sm mt-6">By: {author}</p>
-                      <a href={link} target="_blank" className="mt-6">
-                        Read More <i className="fas fa-chevron-right"></i>
+                      <p className="prose lg:prose-sm mt-6">
+                        By:
+                        {author}
+                      </p>
+                      <a href={link} target="_blank" className="mt-6" rel="noreferrer">
+                        Read More
+                        {' '}
+                        <i className="fas fa-chevron-right" />
                       </a>
                     </div>
                   </div>
@@ -65,7 +72,9 @@ export const Rss: FC<IProps> = ({ rss, cancel }: IProps) => {
               </>
             ) : (
               <>
-                {min.map(({ title, link, description, enclosure, author }: any) => (
+                {min.map(({
+                  title, link, description, enclosure, author,
+                }: any) => (
                   <div className="w-full flex overflow-hidden my-2">
                     <div className="w-full" style={{ flexBasis: '60%' }}>
                       <img src={enclosure.link} className="w-full" alt="" />
@@ -75,9 +84,14 @@ export const Rss: FC<IProps> = ({ rss, cancel }: IProps) => {
                       <article className="prose lg:prose-sm mt-6">
                         {description}
                       </article>
-                      <p className="prose lg:prose-sm mt-6">By: {author}</p>
-                      <a href={link} target="_blank" className="mt-6">
-                        Read More <i className="fas fa-chevron-right"></i>
+                      <p className="prose lg:prose-sm mt-6">
+                        By:
+                        {author}
+                      </p>
+                      <a href={link} target="_blank" className="mt-6" rel="noreferrer">
+                        Read More
+                        {' '}
+                        <i className="fas fa-chevron-right" />
                       </a>
                     </div>
                   </div>
@@ -87,7 +101,7 @@ export const Rss: FC<IProps> = ({ rss, cancel }: IProps) => {
           </div>
         </Wrapper>
       </Middle>
-      <Bottom></Bottom>
+      <Bottom />
     </Wrap>
   );
 };

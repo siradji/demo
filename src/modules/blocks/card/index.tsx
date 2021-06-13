@@ -15,13 +15,11 @@ interface IProps {
   variant: CardSize;
 }
 
-export const Card: FC<IProps> = ({ variant, children }) => {
-  return (
-    <Wrap className={clsx(CardVariant[variant], 'rounded overflow-hidden my-2')}>
-      {children}
-    </Wrap>
-  );
-};
+export const Card: FC<IProps> = ({ variant, children }) => (
+  <Wrap className={clsx(CardVariant[variant], 'rounded overflow-hidden my-2')}>
+    {children}
+  </Wrap>
+);
 
 const Wrap = styled.div`
   background-color: ${({ theme }) => theme.primary};

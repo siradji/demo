@@ -14,7 +14,7 @@ export const Gallery: FC<IProps> = ({ gallery, photos }: IProps) => {
   const max = photos.slice(10, 30);
 
   const toggleExpand = () => {
-    setExpand(expand ? false : true);
+    setExpand(!expand);
   };
 
   return (
@@ -35,8 +35,8 @@ export const Gallery: FC<IProps> = ({ gallery, photos }: IProps) => {
             onClick={() => gallery(false)}
             style={{ marginRight: '1em' }}
             className="fas fa-times"
-          ></i>
-          <i onClick={toggleExpand} className="fas fa-square"></i>
+          />
+          <i onClick={toggleExpand} className="fas fa-square" />
         </div>
       </Top>
       <Middle>
@@ -44,13 +44,13 @@ export const Gallery: FC<IProps> = ({ gallery, photos }: IProps) => {
           <div className={`${expand ? 'grid grid-cols-5' : 'grid grid-cols-2'}`}>
             {expand ? (
               <>
-                {max.map(p => (
+                {max.map((p) => (
                   <img src={p.download_url} alt="" />
                 ))}
               </>
             ) : (
               <>
-                {min.map(p => (
+                {min.map((p) => (
                   <img src={p.download_url} alt="" />
                 ))}
               </>
@@ -58,7 +58,7 @@ export const Gallery: FC<IProps> = ({ gallery, photos }: IProps) => {
           </div>
         </Wrapper>
       </Middle>
-      <Bottom></Bottom>
+      <Bottom />
     </Wrap>
   );
 };

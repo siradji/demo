@@ -1,6 +1,5 @@
 import { Sidebar } from '@modules/blocks/sidebar';
 import { TopBar } from '@modules/blocks/topbar';
-import { Auth } from '../modules/sections/Auth';
 import Head from 'next/head';
 import { useEffect, useState } from 'react';
 import firebase from 'firebase';
@@ -8,6 +7,7 @@ import { Camera } from '@modules/sections/Camera';
 import { Gallery } from '@modules/sections/Gallery';
 import { Rss } from '@modules/sections/Rss';
 import { Browser } from '@modules/sections/Browser';
+import { Auth } from '../modules/sections/Auth';
 
 export default function Home({ data, rssFeed }) {
   const [logged, setLogged] = useState<boolean>(false);
@@ -16,7 +16,7 @@ export default function Home({ data, rssFeed }) {
   const [browser, setBrowser] = useState<boolean>(false);
   const [rss, setRss] = useState<boolean>(false);
   useEffect(() => {
-    firebase.auth().onAuthStateChanged(user => {
+    firebase.auth().onAuthStateChanged((user) => {
       if (user) {
         setLogged(true);
       }
@@ -65,8 +65,8 @@ export async function getStaticProps(context) {
   const res = await fetch(
     'https://api.rss2json.com/v1/api.json?rss_url=https://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml',
   );
-  let data = await response.json();
-  let rss = await res.json();
+  const data = await response.json();
+  const rss = await res.json();
 
   return {
     props: { data, rssFeed: rss.items }, // will be passed to the page component as props

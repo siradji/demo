@@ -6,13 +6,11 @@ interface IProps {
   children: ReactNode;
 }
 
-export const Logo: FC<IProps> = ({ children, size }: IProps) => {
-  return (
-    <Text href="/" style={{ fontSize: `${size}px` }}>
-      {children}
-    </Text>
-  );
-};
+export const Logo: FC<IProps> = ({ children, size }: IProps) => (
+  <Text href="/" style={{ fontSize: `${size}px` }}>
+    {children}
+  </Text>
+);
 
 const Text = styled.a`
   color: ${({ theme }) => theme.accent};
