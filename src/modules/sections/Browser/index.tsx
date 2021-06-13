@@ -9,8 +9,12 @@ export const Browser: FC<IProps> = ({ browser }: IProps) => {
   const [expand, setExpand] = useState<boolean>(false);
   const [focus, setFocus] = useState<boolean>(false);
   const [keyword, setKeyword] = useState<string>('');
-  const rangeTop: number = Math.floor(Math.random() * 20);
-  const rangeLeft: number = Math.floor(Math.random() * 50);
+  const rangeTop = useCallback(() => {
+    Math.floor(Math.random() * 20);
+  }, []);
+  const rangeLeft = useCallback(() => {
+    Math.floor(Math.random() * 50);
+  }, []);
 
   const toggleExpand = () => {
     setExpand(expand ? false : true);
@@ -93,6 +97,7 @@ const Row = styled.div`
     }
     i {
       cursor: pointer;
+      color: ${({ theme }) => theme.accent};
     }
   }
 `;
