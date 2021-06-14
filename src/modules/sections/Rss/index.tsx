@@ -8,15 +8,13 @@ interface IProps {
 
 export const Rss: FC<IProps> = ({ rss, cancel }: IProps) => {
   const [expand, setExpand] = useState<boolean>(false);
-  const rangeTop: number = Math.floor(Math.random() * 20);
-  const rangeLeft: number = Math.floor(Math.random() * 50);
-
-  const toggleExpand = () => {
-    setExpand(!expand);
-  };
 
   const min = rss.slice(0, 4);
   const max = rss.slice(0, 10);
+  const rangeTop: number = Math.floor(Math.random() * 20);
+  const rangeLeft: number = Math.floor(Math.random() * 50);
+
+  const toggleExpand = () => setExpand(!expand);
 
   return (
     <Wrap

@@ -40,7 +40,6 @@ export const TopBar: FC = () => {
       <Left>
         <p>
           {date}
-          {' '}
           {time}
         </p>
       </Left>

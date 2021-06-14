@@ -1,28 +1,30 @@
-
-import { FC, ReactChild, MouseEvent } from 'react';
+import clsx from 'clsx';
+import { FC, ReactChild } from 'react';
 import styled from 'styled-components';
 
 export interface ButtonProps {
-  onClick?: (e: MouseEvent<HTMLButtonElement>) => void;
+  onClick?: (e: any) => void;
   children: ReactChild;
   type?: 'button' | 'submit' | 'reset';
+  fill?: boolean;
+  outline?: boolean;
+  width?: string;
 }
 
 export const Button: FC<ButtonProps> = ({
   onClick,
+  fill,
   children,
   type = 'button',
+  outline,
+  width,
 }) => (
-  <ButtonComponent 
-     type={type} 
-     data-testid="main-button-cp" 
-     onClick={(e: MouseEvent<HTMLButtonElement>) => onClick(e)}
-     >
+  <But type={type} data-testid="main-button-cp" onClick={onClick}>
     {children}
-  </ButtonComponent>
+  </But>
 );
 
-const ButtonComponent = styled.button`
+const But = styled.button`
   color: ${({ theme }) => theme.accent};
   font-size: 1rem;
   padding: 10px 20px;

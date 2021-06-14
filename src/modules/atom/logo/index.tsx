@@ -7,7 +7,7 @@ interface IProps {
 }
 
 export const Logo: FC<IProps> = ({ children, size }: IProps) => (
-  <Text href="/" style={{ fontSize: `${size}px` }}>
+  <Text data-testid={"main-logo-cp"} href="/" style={{ fontSize: `${size}px` }}>
     {children}
   </Text>
 );

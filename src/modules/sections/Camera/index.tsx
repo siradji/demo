@@ -8,16 +8,11 @@ interface IProps {
 
 export const Camera: FC<IProps> = ({ camera }: IProps) => {
   const [expand, setExpand] = useState<boolean>(false);
-  const [focus, setFocus] = useState<boolean>(false);
+
   const rangeTop: number = Math.floor(Math.random() * 20);
   const rangeLeft: number = Math.floor(Math.random() * 50);
 
-  const toggleExpand = () => {
-    setExpand(!expand);
-  };
-  let def = 2;
-
-  const z = def++;
+  const toggleExpand = () => setExpand(!expand)
 
   return (
     <Wrap
@@ -27,9 +22,7 @@ export const Camera: FC<IProps> = ({ camera }: IProps) => {
         width: `${expand ? '100%' : '700px'}`,
         height: `${expand ? '100vh' : '500px'}`,
         position: `${expand ? 'relative' : 'absolute'}`,
-        zIndex: focus ? z : def,
       }}
-      onFocus={() => setFocus(true)}
     >
       <Top>
         <p>Camera</p>

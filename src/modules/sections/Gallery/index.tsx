@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useState } from 'react';
+import React, { FC, useState } from 'react';
 import styled from 'styled-components';
 
 interface IProps {
@@ -8,8 +8,10 @@ interface IProps {
 
 export const Gallery: FC<IProps> = ({ gallery, photos }: IProps) => {
   const [expand, setExpand] = useState<boolean>(false);
+
   const rangeTop: number = Math.floor(Math.random() * 20);
   const rangeLeft: number = Math.floor(Math.random() * 50);
+
   const min = photos.slice(0, 4);
   const max = photos.slice(10, 30);
 

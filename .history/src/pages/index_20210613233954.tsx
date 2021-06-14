@@ -1,9 +1,8 @@
-import Head from 'next/head';
-import firebase from 'firebase';
-import { useEffect, useState } from 'react';
-
 import { Sidebar } from '@modules/blocks/sidebar';
 import { TopBar } from '@modules/blocks/topbar';
+import Head from 'next/head';
+import { useEffect, useState } from 'react';
+import firebase from 'firebase';
 import { Camera } from '@modules/sections/Camera';
 import { Gallery } from '@modules/sections/Gallery';
 import { Rss } from '@modules/sections/Rss';
@@ -11,13 +10,11 @@ import { Browser } from '@modules/sections/Browser';
 import { Auth } from '../modules/sections/Auth';
 
 export default function Home({ data, rssFeed }) {
-
   const [logged, setLogged] = useState<boolean>(false);
   const [camera, setCamera] = useState<boolean>(false);
   const [gallery, setGallery] = useState<boolean>(false);
   const [browser, setBrowser] = useState<boolean>(false);
   const [rss, setRss] = useState<boolean>(false);
-
   useEffect(() => {
     firebase.auth().onAuthStateChanged((user) => {
       if (user) {
@@ -25,7 +22,6 @@ export default function Home({ data, rssFeed }) {
       }
     });
   }, []);
-  
   return (
     <>
       <Head>

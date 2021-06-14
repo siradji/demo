@@ -1,10 +1,12 @@
-import { Icon } from '@modules/atom/icon';
-import { Logo } from '@modules/atom/logo';
-import { Card } from '@modules/blocks/card';
-import React, { FC, useEffect, useState } from 'react';
-import styled from 'styled-components';
+
+import { FC, useState } from 'react';
 import firebase from 'firebase';
+import styled from 'styled-components';
+
 import { Button } from '@modules/atom/button';
+import { Card } from '@modules/blocks/card';
+import { InputComponent } from '@modules/atom/input/Input';
+
 
 export const Auth: FC = () => {
   const [email, setEmail] = useState('');
@@ -29,20 +31,12 @@ export const Auth: FC = () => {
     <Wrap>
       <Inner>
         <Card variant="lg">
-          <Input
-            onChange={(e) => setEmail(e.target.value)}
-            placeholder="Email"
-            type="text"
-          />
+          <InputComponent handleChange={setEmail} type={'email'} placeholder={'Enter email'} />
           <Contain>
-            <Input
-              onChange={(e) => setPassword(e.target.value)}
-              placeholder="Password"
-              type={showPass ? 'text' : 'password'}
-            />
+            <InputComponent handleChange={setPassword} type={showPass ? 'text' : 'password'} placeholder={'Enter Password'} />
             <i onClick={togglePasswordVisiblity} className="far fa-eye-slash" />
           </Contain>
-          <Button fill onClick={Signin}>
+          <Button onClick={Signin}>
             submit
           </Button>
         </Card>
@@ -77,17 +71,3 @@ const Contain = styled.div`
 `;
 
 const Inner = styled.div``;
-
-const Input = styled.input`
-  width: 100%;
-  background-color: rgba(0, 0, 0, 0.72);
-  border: none;
-  font-size: 1.5rem;
-  border-radius: ${({ theme }) => theme.corner};
-  &:focus {
-    outline: 0 !important;
-  }
-  margin-top: 1.5em;
-  padding: 1em 1.2em;
-  color: ${({ theme }) => theme.accent};
-`;

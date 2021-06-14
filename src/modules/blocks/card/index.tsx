@@ -1,6 +1,5 @@
-import { Button } from '@modules/atom/button';
 import clsx from 'clsx';
-import React, { FC, useState } from 'react';
+import React, { FC } from 'react';
 import styled from 'styled-components';
 
 export type CardSize = 'md' | 'sm' | 'lg';
